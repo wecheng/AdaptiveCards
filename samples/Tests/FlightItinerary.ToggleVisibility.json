@@ -177,11 +177,12 @@
                                                                 {
                                                                     "width": "stretch",
                                                                     "verticalContentAlignment": "center",
+                                                                    "height":"stretch",
                                                                     "items": [
                                                                         {
                                                                             "type": "Image",
                                                                             "height": "2px",
-                                                                            "width": "10000px",
+                                                                            "width": "100px",
                                                                             "url": "http://messagecardplayground.azurewebsites.net/assets/graydot2x2.png"
                                                                         }
                                                                     ]
