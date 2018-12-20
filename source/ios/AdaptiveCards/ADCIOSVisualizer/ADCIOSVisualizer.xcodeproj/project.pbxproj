@@ -39,6 +39,7 @@
 		6B5D2413212E15740010EB07 /* Feedback.json in Resources */ = {isa = PBXBuildFile; fileRef = 6B5D2412212E15740010EB07 /* Feedback.json */; };
 		6B616C3C21CB0B6D003E29CE /* Action.ToggleVisibility.json in Resources */ = {isa = PBXBuildFile; fileRef = 6B616C3B21CB0B6C003E29CE /* Action.ToggleVisibility.json */; };
 		6B616C4621CB2493003E29CE /* AutoImageSet.json in Resources */ = {isa = PBXBuildFile; fileRef = 6B616C4521CB2493003E29CE /* AutoImageSet.json */; };
+		6B616C4821CC1BEF003E29CE /* FlightItinerary.ToggleVisibility.json in Resources */ = {isa = PBXBuildFile; fileRef = 6B616C4721CC1BEF003E29CE /* FlightItinerary.ToggleVisibility.json */; };
 		6B7B1A9B20C21CA900260731 /* SportingEvent.json in Resources */ = {isa = PBXBuildFile; fileRef = 6B7B1A9920C21CA800260731 /* SportingEvent.json */; };
 		6B980936215AE8780024B79B /* AdaptiveCards.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B980935215AE8780024B79B /* AdaptiveCards.framework */; };
 		6B980939215AE9A10024B79B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B980933215AE6EC0024B79B /* UIKit.framework */; };
@@ -188,6 +189,7 @@
 		6B5D2412212E15740010EB07 /* Feedback.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = Feedback.json; path = ../../../../samples/Tests/Feedback.json; sourceTree = "<group>"; };
 		6B616C3B21CB0B6C003E29CE /* Action.ToggleVisibility.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = Action.ToggleVisibility.json; path = ../../../../samples/v1.2/Elements/Action.ToggleVisibility.json; sourceTree = "<group>"; };
 		6B616C4521CB2493003E29CE /* AutoImageSet.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = AutoImageSet.json; path = ../../../../samples/Tests/AutoImageSet.json; sourceTree = "<group>"; };
+		6B616C4721CC1BEF003E29CE /* FlightItinerary.ToggleVisibility.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = FlightItinerary.ToggleVisibility.json; path = ../../../../samples/Tests/FlightItinerary.ToggleVisibility.json; sourceTree = "<group>"; };
 		6B7B1A9920C21CA800260731 /* SportingEvent.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = SportingEvent.json; path = ../../../../samples/v1.0/Scenarios/SportingEvent.json; sourceTree = "<group>"; };
 		6B980930215AE4310024B79B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		6B980933215AE6EC0024B79B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -426,6 +428,7 @@
 		F4D33E341F045B6E00941E44 /* Jsons */ = {
 			isa = PBXGroup;
 			children = (
+				6B616C4721CC1BEF003E29CE /* FlightItinerary.ToggleVisibility.json */,
 				6B616C4521CB2493003E29CE /* AutoImageSet.json */,
 				6B616C3B21CB0B6C003E29CE /* Action.ToggleVisibility.json */,
 				300ECB70219A53B800371DC5 /* Action.OpenUrl.Sentiment.json */,
@@ -731,6 +734,7 @@
 				F4933CCF1F79852C00F6EBFD /* Container.SelectAction.json in Resources */,
 				6B2630E12151A26100ED9207 /* LongFactSet.json in Resources */,
 				30860BCD20C9B5C9009F9D99 /* ColumnSet.Input.Time.VerticalStretch.json in Resources */,
+				6B616C4821CC1BEF003E29CE /* FlightItinerary.ToggleVisibility.json in Resources */,
 				F4933CDC1F79852C00F6EBFD /* Input.ChoiceSet.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -1,0 +1,464 @@
+{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "version": "1.0",
+    "body": [
+        {
+            "type": "Container",
+            "selectAction": {
+                "type": "Action.ToggleVisibility",
+                "targetElements": [
+                    "leg1Details"
+                ]
+            },
+            "items": [
+                {
+                    "type": "ColumnSet",
+                    "columns": [
+                        {
+                            "width": "24px",
+                            "items": [
+                                {
+                                    "type": "Image",
+                                    "style": "person",
+                                    "backgroundColor": "#0078D7",
+                                    "url": "http://messagecardplayground.azurewebsites.net/assets/smallairplane_white.png"
+                                }
+                            ]
+                        },
+                        {
+                            "width": "stretch",
+                            "spacing": "small",
+                            "verticalContentAlignment": "center",
+                            "items": [
+                                {
+                                    "type": "TextBlock",
+                                    "text": "**Depart:** Delta Air Lines flight 8471 to Paris"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "ColumnSet",
+                    "spacing": "none",
+                    "columns": [
+                        {
+                            "width": "24px",
+                            "items": [
+                                {
+                                    "type": "Image",
+                                    "horizontalAlignment": "center",
+                                    "width": "1px",
+                                    "height": "20px",
+                                    "url": "http://messagecardplayground.azurewebsites.net/assets/palebluedot1x1.png"
+                                }
+                            ]
+                        },
+                        {
+                            "width": "stretch",
+                            "spacing": "small",
+                            "items": [
+                                {
+                                    "type": "TextBlock",
+                                    "text": "Bengaluru, Sun 11/12/2017 1:55 AM, 10 hours 41 minutes",
+                                    "isSubtle": true
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "ColumnSet",
+            "id": "leg1Details",
+            "isVisible": false,
+            "spacing": "none",
+            "columns": [
+                {
+                    "width": "24px",
+                    "padding": "none",
+                    "backgroundImage": {
+                        "url": "http://messagecardplayground.azurewebsites.net/assets/palebluedot1x1.png",
+                        "mode": "repeatVertically",
+                        "horizontalAlignment": "center"
+                    }
+                },
+                {
+                    "width": "stretch",
+                    "spacing": "small",
+                    "items": [
+                        {
+                            "type": "Container",
+                            "padding": {
+                                "top": "default"
+                            },
+                            "items": [
+                                {
+                                    "type": "ColumnSet",
+                                    "columns": [
+                                        {
+                                            "width": 45,
+                                            "items": [
+                                                {
+                                                    "type": "Container",
+                                                    "padding": "none",
+                                                    "backgroundImage": "http://messagecardplayground.azurewebsites.net/assets/TxP_Background.png",
+                                                    "items": [
+                                                        {
+                                                            "type": "Image",
+                                                            "horizontalAlignment": "center",
+                                                            "url": "http://messagecardplayground.azurewebsites.net/assets/TxP_Flight.png"
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "type": "Container",
+                                                    "style": "emphasis",
+                                                    "spacing": "none",
+                                                    "items": [
+                                                        {
+                                                            "type": "TextBlock",
+                                                            "text": "Flight to Paris",
+                                                            "wrap": true,
+                                                            "size": "extraLarge",
+                                                            "weight": "lighter",
+                                                            "color": "accent"
+                                                        },
+                                                        {
+                                                            "type": "TextBlock",
+                                                            "text": "Delta Air Lines flight 8471",
+                                                            "wrap": true,
+                                                            "size": "medium",
+                                                            "spacing": "small"
+                                                        },
+                                                        {
+                                                            "type": "TextBlock",
+                                                            "wrap": true,
+                                                            "text": "Confirmation code: ABCDEF",
+                                                            "size": "medium",
+                                                            "spacing": "none"
+                                                        },
+                                                        {
+                                                            "type": "TextBlock",
+                                                            "wrap": true,
+                                                            "text": "10 hours 45 minutes",
+                                                            "size": "medium",
+                                                            "spacing": "none"
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "width": 55,
+                                            "spacing": "none",
+                                            "padding": "default",
+                                            "items": [
+                                                {
+                                                    "type": "Container",
+                                                    "height": "stretch",
+                                                    "items": [
+                                                        {
+                                                            "type": "ColumnSet",
+                                                            "columns": [
+                                                                {
+                                                                    "width": "auto",
+                                                                    "items": [
+                                                                        {
+                                                                            "type": "TextBlock",
+                                                                            "text": "BLR",
+                                                                            "weight": "lighter",
+                                                                            "size": "extraLarge"
+                                                                        }
+                                                                    ]
+                                                                },
+                                                                {
+                                                                    "width": "stretch",
+                                                                    "verticalContentAlignment": "center",
+                                                                    "items": [
+                                                                        {
+                                                                            "type": "Image",
+                                                                            "height": "2px",
+                                                                            "width": "10000px",
+                                                                            "url": "http://messagecardplayground.azurewebsites.net/assets/graydot2x2.png"
+                                                                        }
+                                                                    ]
+                                                                },
+                                                                {
+                                                                    "width": "auto",
+                                                                    "spacing": "small",
+                                                                    "verticalContentAlignment": "center",
+                                                                    "items": [
+                                                                        {
+                                                                            "type": "Image",
+                                                                            "height": "16px",
+                                                                            "url": "http://messagecardplayground.azurewebsites.net/assets/smallairplane.png"
+                                                                        }
+                                                                    ]
+                                                                },
+                                                                {
+                                                                    "width": "auto",
+                                                                    "items": [
+                                                                        {
+                                                                            "type": "TextBlock",
+                                                                            "text": "CDG",
+                                                                            "weight": "lighter",
+                                                                            "horizontalAlignment": "right",
+                                                                            "size": "extraLarge"
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            ]
+                                                        },
+                                                        {
+                                                            "type": "ColumnSet",
+                                                            "columns": [
+                                                                {
+                                                                    "width": 1,
+                                                                    "items": [
+                                                                        {
+                                                                            "type": "TextBlock",
+                                                                            "text": "1:55 AM",
+                                                                            "size": "medium"
+                                                                        }
+                                                                    ]
+                                                                },
+                                                                {
+                                                                    "width": 1,
+                                                                    "items": [
+                                                                        {
+                                                                            "type": "TextBlock",
+                                                                            "text": "8:10 AM",
+                                                                            "horizontalAlignment": "right",
+                                                                            "size": "medium"
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            ]
+                                                        },
+                                                        {
+                                                            "type": "ColumnSet",
+                                                            "spacing": "none",
+                                                            "columns": [
+                                                                {
+                                                                    "width": 1,
+                                                                    "items": [
+                                                                        {
+                                                                            "type": "TextBlock",
+                                                                            "isSubtle": true,
+                                                                            "wrap": true,
+                                                                            "text": "November 12, 2017"
+                                                                        }
+                                                                    ]
+                                                                },
+                                                                {
+                                                                    "width": 1,
+                                                                    "items": [
+                                                                        {
+                                                                            "type": "TextBlock",
+                                                                            "isSubtle": true,
+                                                                            "wrap": true,
+                                                                            "text": "November 12, 2017",
+                                                                            "horizontalAlignment": "right"
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            ]
+                                                        },
+                                                        {
+                                                            "type": "ColumnSet",
+                                                            "spacing": "none",
+                                                            "columns": [
+                                                                {
+                                                                    "width": 1,
+                                                                    "items": [
+                                                                        {
+                                                                            "type": "TextBlock",
+                                                                            "isSubtle": true,
+                                                                            "text": "Bengaluru"
+                                                                        }
+                                                                    ]
+                                                                },
+                                                                {
+                                                                    "width": 1,
+                                                                    "items": [
+                                                                        {
+                                                                            "type": "TextBlock",
+                                                                            "isSubtle": true,
+                                                                            "text": "Paris",
+                                                                            "horizontalAlignment": "right"
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            ]
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "type": "ColumnSet",
+                                                    "horizontalAlignment": "right",
+                                                    "separator": true,
+                                                    "spacing": "large",
+                                                    "columns": [
+                                                        {
+                                                            "width": "auto",
+                                                            "selectAction": {
+                                                                "type": "Action.OpenUrl",
+                                                                "url": "http://www.microsoft.com"
+                                                            },
+                                                            "items": [
+                                                                {
+                                                                    "type": "ColumnSet",
+                                                                    "columns": [
+                                                                        {
+                                                                            "width": "auto",
+                                                                            "verticalContentyAlignment": "center",
+                                                                            "items": [
+                                                                                {
+                                                                                    "type": "Image",
+                                                                                    "height": "16px",
+                                                                                    "url": "http://messagecardplayground.azurewebsites.net/assets/smallairplane.png"
+                                                                                }
+                                                                            ]
+                                                                        },
+                                                                        {
+                                                                            "width": "auto",
+                                                                            "spacing": "small",
+                                                                            "items": [
+                                                                                {
+                                                                                    "type": "TextBlock",
+                                                                                    "text": "Check in"
+                                                                                }
+                                                                            ]
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            ]
+                                                        },
+                                                        {
+                                                            "width": "auto",
+                                                            "spacing": "large",
+                                                            "selectAction": {
+                                                                "type": "Action.OpenUrl",
+                                                                "url": "http://www.microsoft.com"
+                                                            },
+                                                            "items": [
+                                                                {
+                                                                    "type": "ColumnSet",
+                                                                    "columns": [
+                                                                        {
+                                                                            "width": "auto",
+                                                                            "verticalContentyAlignment": "center",
+                                                                            "items": [
+                                                                                {
+                                                                                    "type": "Image",
+                                                                                    "height": "16px",
+                                                                                    "url": "http://messagecardplayground.azurewebsites.net/assets/calendaricon.png"
+                                                                                }
+                                                                            ]
+                                                                        },
+                                                                        {
+                                                                            "width": "auto",
+                                                                            "spacing": "small",
+                                                                            "items": [
+                                                                                {
+                                                                                    "type": "TextBlock",
+                                                                                    "text": "View in Calendar"
+                                                                                }
+                                                                            ]
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            ]
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "ColumnSet",
+            "spacing": "none",
+            "columns": [
+                {
+                    "width": "24px",
+                    "items": [
+                        {
+                            "type": "Image",
+                            "height": "20px",
+                            "width": "1px",
+                            "horizontalAlignment": "center",
+                            "url": "http://messagecardplayground.azurewebsites.net/assets/palebluedot1x1.png"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "ColumnSet",
+            "spacing": "none",
+            "columns": [
+                {
+                    "width": "24px",
+                    "items": [
+                        {
+                            "type": "Image",
+                            "style": "person",
+                            "backgroundColor": "#0078D7",
+                            "url": "http://messagecardplayground.azurewebsites.net/assets/smallairplane_white.png"
+                        }
+                    ]
+                },
+                {
+                    "width": "stretch",
+                    "spacing": "small",
+                    "verticalContentAlignment": "center",
+                    "items": [
+                        {
+                            "type": "TextBlock",
+                            "text": "**Depart:** Delta Air Lines flight 8471 to Paris"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "ColumnSet",
+            "spacing": "none",
+            "columns": [
+                {
+                    "width": "24px",
+                    "items": [
+                        {
+                            "type": "Image",
+                            "horizontalAlignment": "center",
+                            "width": "1px",
+                            "height": "20px",
+                            "url": "http://messagecardplayground.azurewebsites.net/assets/palebluedot1x1.png"
+                        }
+                    ]
+                },
+                {
+                    "width": "stretch",
+                    "spacing": "small",
+                    "items": [
+                        {
+                            "type": "TextBlock",
+                            "text": "Bengaluru, Sun 11/12/2017 1:55 AM, 10 hours 41 minutes",
+                            "isSubtle": true
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
