@@ -16,6 +16,7 @@ namespace AdaptiveNamespace
     HRESULT AdaptiveActionInvoker::RuntimeClassInitialize(RenderedAdaptiveCard* renderResult) noexcept try
     {
         m_renderResult = renderResult;
+        m_renderResult->AddRefInternal();
         return S_OK;
     }
     CATCH_RETURN;
@@ -25,4 +26,5 @@ namespace AdaptiveNamespace
         return m_renderResult->SendActionEvent(actionElement);
     }
 
+    AdaptiveActionInvoker::~AdaptiveActionInvoker() { m_renderResult->ReleaseInternal(); }
 }

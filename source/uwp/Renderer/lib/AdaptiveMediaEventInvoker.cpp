@@ -16,6 +16,7 @@ namespace AdaptiveNamespace
     HRESULT AdaptiveMediaEventInvoker::RuntimeClassInitialize(RenderedAdaptiveCard* renderResult) noexcept try
     {
         m_renderResult = renderResult;
+        m_renderResult->AddRefInternal();
         return S_OK;
     }
     CATCH_RETURN;
@@ -25,4 +26,5 @@ namespace AdaptiveNamespace
         return m_renderResult->SendMediaClickedEvent(mediaElement);
     }
 
+    AdaptiveMediaEventInvoker::~AdaptiveMediaEventInvoker() { m_renderResult->ReleaseInternal(); }
 }

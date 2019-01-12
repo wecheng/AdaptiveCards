@@ -25,7 +25,7 @@ using namespace ABI::Windows::UI::Xaml::Controls;
 
 namespace AdaptiveNamespace
 {
-    RenderedAdaptiveCard::RenderedAdaptiveCard() {}
+    RenderedAdaptiveCard::RenderedAdaptiveCard() : m_cRefInternal(0) {}
 
     HRESULT RenderedAdaptiveCard::RuntimeClassInitialize()
     {
@@ -129,5 +129,48 @@ namespace AdaptiveNamespace
     HRESULT RenderedAdaptiveCard::AddInputValue(IAdaptiveInputValue* inputItem)
     {
         return m_inputs->AddInputValue(inputItem);
+    }
+
+    ULONG RenderedAdaptiveCard::AddRefInternal()
+    {
+        AddRef();
+        ULONG cRefInternal = InterlockedIncrement(&m_cRefInternal);
+        Release();
+        return cRefInternal;
+    }
+
+    ULONG RenderedAdaptiveCard::ReleaseInternal()
+    {
+        ULONG cRefInternal = InterlockedDecrement(&m_cRefInternal);
+        return cRefInternal;
+    }
+
+    ULONG RenderedAdaptiveCard::AddRef()
+    {
+        ULONG cRef = RuntimeClassT::AddRef();
+        // We now have an external reference. Make the XAMLRoot a Full Pointer
+        if (cRef > m_cRefInternal && m_frameworkElement == nullptr && m_weakFrameworkElement != nullptr)
+        {
+            m_weakFrameworkElement.As(&m_frameworkElement);
+            m_weakFrameworkElement = nullptr;
+        }
+
+        return cRef;
+    }
+
+    ULONG RenderedAdaptiveCard::Release()
+    {
+        ULONG cRef = RuntimeClassT::Release();
+        if (cRef > 0)
+        {
+            // We haven't been deleted, check if we still have external references
+            if (cRef == m_cRefInternal && m_frameworkElement != nullptr)
+            {
+                m_frameworkElement.AsWeak(&m_weakFrameworkElement);
+                m_frameworkElement = nullptr;
+            }
+        }
+
+        return cRef;
     }
 }

@@ -26,10 +26,13 @@ namespace AdaptiveNamespace
     {
         m_hostConfig = hostConfig;
         m_elementRendererRegistration = elementRendererRegistration;
-        m_renderResult = renderResult;
         m_resourceResolvers = resourceResolvers;
         m_overrideDictionary = overrideDictionary;
         m_actionSentimentDefaultDictionary = defaultActionSentimentStyles;
+
+        // Make the reference to the RenderResult only internal
+        m_renderResult = renderResult;
+        m_renderResult->AddRefInternal();
 
         RETURN_IF_FAILED(MakeAndInitialize<AdaptiveActionInvoker>(&m_actionInvoker, renderResult));
         RETURN_IF_FAILED(MakeAndInitialize<AdaptiveMediaEventInvoker>(&m_mediaEventInvoker, renderResult));
@@ -88,12 +91,12 @@ namespace AdaptiveNamespace
 
     HRESULT AdaptiveRenderContext::get_CardFrameworkElement(_COM_Outptr_ ABI::Windows::UI::Xaml::IFrameworkElement** value)
     {
-        return m_cardFrameworkElement.CopyTo(value);
+        return m_renderResult->get_FrameworkElement(value);
     }
 
     HRESULT AdaptiveRenderContext::put_CardFrameworkElement(ABI::Windows::UI::Xaml::IFrameworkElement* value)
     {
-        m_cardFrameworkElement = value;
+        m_renderResult->SetFrameworkElement(value);
         return S_OK;
     }
 
