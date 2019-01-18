@@ -38,7 +38,11 @@ public class Container extends BaseCardElement {
   }
 
   public Container() {
-    this(AdaptiveCardObjectModelJNI.new_Container(), true);
+    this(AdaptiveCardObjectModelJNI.new_Container__SWIG_0(), true);
+  }
+
+  public Container(Container arg0) {
+    this(AdaptiveCardObjectModelJNI.new_Container__SWIG_1(Container.getCPtr(arg0), arg0), true);
   }
 
   public JsonValue SerializeToJsonValue() {

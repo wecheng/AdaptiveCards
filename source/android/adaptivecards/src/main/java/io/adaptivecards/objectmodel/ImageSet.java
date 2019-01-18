@@ -38,7 +38,11 @@ public class ImageSet extends BaseCardElement {
   }
 
   public ImageSet() {
-    this(AdaptiveCardObjectModelJNI.new_ImageSet(), true);
+    this(AdaptiveCardObjectModelJNI.new_ImageSet__SWIG_0(), true);
+  }
+
+  public ImageSet(ImageSet arg0) {
+    this(AdaptiveCardObjectModelJNI.new_ImageSet__SWIG_1(ImageSet.getCPtr(arg0), arg0), true);
   }
 
   public JsonValue SerializeToJsonValue() {

@@ -38,7 +38,11 @@ public class TextBlock extends BaseCardElement {
   }
 
   public TextBlock() {
-    this(AdaptiveCardObjectModelJNI.new_TextBlock(), true);
+    this(AdaptiveCardObjectModelJNI.new_TextBlock__SWIG_0(), true);
+  }
+
+  public TextBlock(TextBlock arg0) {
+    this(AdaptiveCardObjectModelJNI.new_TextBlock__SWIG_1(TextBlock.getCPtr(arg0), arg0), true);
   }
 
   public JsonValue SerializeToJsonValue() {

@@ -38,7 +38,11 @@ public class NumberInput extends BaseInputElement {
   }
 
   public NumberInput() {
-    this(AdaptiveCardObjectModelJNI.new_NumberInput(), true);
+    this(AdaptiveCardObjectModelJNI.new_NumberInput__SWIG_0(), true);
+  }
+
+  public NumberInput(NumberInput arg0) {
+    this(AdaptiveCardObjectModelJNI.new_NumberInput__SWIG_1(NumberInput.getCPtr(arg0), arg0), true);
   }
 
   public JsonValue SerializeToJsonValue() {

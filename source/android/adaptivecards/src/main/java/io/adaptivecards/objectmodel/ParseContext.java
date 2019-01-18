@@ -39,12 +39,8 @@ public class ParseContext {
     this(AdaptiveCardObjectModelJNI.new_ParseContext__SWIG_0(), true);
   }
 
-  public ParseContext(ElementParserRegistration elementRegistration, ActionParserRegistration actionRegistration, SWIGTYPE_p_std__shared_ptrT_std__unordered_setT_std__string_t_t elementIds) {
-    this(AdaptiveCardObjectModelJNI.new_ParseContext__SWIG_1(ElementParserRegistration.getCPtr(elementRegistration), elementRegistration, ActionParserRegistration.getCPtr(actionRegistration), actionRegistration, SWIGTYPE_p_std__shared_ptrT_std__unordered_setT_std__string_t_t.getCPtr(elementIds)), true);
-  }
-
   public ParseContext(ElementParserRegistration elementRegistration, ActionParserRegistration actionRegistration) {
-    this(AdaptiveCardObjectModelJNI.new_ParseContext__SWIG_2(ElementParserRegistration.getCPtr(elementRegistration), elementRegistration, ActionParserRegistration.getCPtr(actionRegistration), actionRegistration), true);
+    this(AdaptiveCardObjectModelJNI.new_ParseContext__SWIG_1(ElementParserRegistration.getCPtr(elementRegistration), elementRegistration, ActionParserRegistration.getCPtr(actionRegistration), actionRegistration), true);
   }
 
   public void setElementParserRegistration(ElementParserRegistration value) {
@@ -65,15 +61,6 @@ public class ParseContext {
     return (cPtr == 0) ? null : new ActionParserRegistration(cPtr, true);
   }
 
-  public void setElementIds(SWIGTYPE_p_std__shared_ptrT_std__unordered_setT_std__string_t_t value) {
-    AdaptiveCardObjectModelJNI.ParseContext_elementIds_set(swigCPtr, this, SWIGTYPE_p_std__shared_ptrT_std__unordered_setT_std__string_t_t.getCPtr(value));
-  }
-
-  public SWIGTYPE_p_std__shared_ptrT_std__unordered_setT_std__string_t_t getElementIds() {
-    long cPtr = AdaptiveCardObjectModelJNI.ParseContext_elementIds_get(swigCPtr, this);
-    return (cPtr == 0) ? null : new SWIGTYPE_p_std__shared_ptrT_std__unordered_setT_std__string_t_t(cPtr, false);
-  }
-
   public void setWarnings(AdaptiveCardParseWarningVector value) {
     AdaptiveCardObjectModelJNI.ParseContext_warnings_set(swigCPtr, this, AdaptiveCardParseWarningVector.getCPtr(value), value);
   }
@@ -81,6 +68,14 @@ public class ParseContext {
   public AdaptiveCardParseWarningVector getWarnings() {
     long cPtr = AdaptiveCardObjectModelJNI.ParseContext_warnings_get(swigCPtr, this);
     return (cPtr == 0) ? null : new AdaptiveCardParseWarningVector(cPtr, false);
+  }
+
+  public void PushElement(SWIGTYPE_p_std__tupleT_std__string_unsigned_int_bool_t ids) {
+    AdaptiveCardObjectModelJNI.ParseContext_PushElement(swigCPtr, this, SWIGTYPE_p_std__tupleT_std__string_unsigned_int_bool_t.getCPtr(ids));
+  }
+
+  public void PopElement() {
+    AdaptiveCardObjectModelJNI.ParseContext_PopElement(swigCPtr, this);
   }
 
 }

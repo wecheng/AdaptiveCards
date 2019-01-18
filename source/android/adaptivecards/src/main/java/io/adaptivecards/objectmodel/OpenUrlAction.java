@@ -38,7 +38,11 @@ public class OpenUrlAction extends BaseActionElement {
   }
 
   public OpenUrlAction() {
-    this(AdaptiveCardObjectModelJNI.new_OpenUrlAction(), true);
+    this(AdaptiveCardObjectModelJNI.new_OpenUrlAction__SWIG_0(), true);
+  }
+
+  public OpenUrlAction(OpenUrlAction arg0) {
+    this(AdaptiveCardObjectModelJNI.new_OpenUrlAction__SWIG_1(OpenUrlAction.getCPtr(arg0), arg0), true);
   }
 
   public JsonValue SerializeToJsonValue() {

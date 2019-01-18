@@ -64,6 +64,7 @@ struct tm {
 #include "../../../shared/cpp/ObjectModel/Enums.h"
 #include "../../../shared/cpp/ObjectModel/AdaptiveBase64Util.h"
 #include "../../../shared/cpp/ObjectModel/RemoteResourceInformation.h"
+#include "../../../shared/cpp/ObjectModel/BaseElement.h"
 #include "../../../shared/cpp/ObjectModel/BaseCardElement.h"
 #include "../../../shared/cpp/ObjectModel/BaseActionElement.h"
 #include "../../../shared/cpp/ObjectModel/BaseInputElement.h"
@@ -102,6 +103,7 @@ struct tm {
 #include "../../../shared/cpp/ObjectModel/ToggleVisibilityTarget.h"
 %}
 
+%shared_ptr(AdaptiveCards::BaseElement)
 %shared_ptr(AdaptiveCards::BaseActionElement)
 %shared_ptr(AdaptiveCards::BaseCardElement)
 %shared_ptr(AdaptiveCards::BaseInputElement)
@@ -172,6 +174,28 @@ namespace Json {
 %feature("director", assumeoverride=1) AdaptiveCards::ActionElementParser;
 
 %typemap(in,numinputs=0) JNIEnv *jenv "$1 = jenv;"
+%extend AdaptiveCards::BaseElement {
+    // return the underlying Java object if this is a Director, or null otherwise
+    jobject swigOriginalObject(JNIEnv *jenv) {
+        Swig::Director *dir = dynamic_cast<Swig::Director*>($self);
+        if (dir) {
+            return dir->swig_get_self(jenv);
+        }
+        return NULL;
+    }
+}
+
+%typemap(javacode) AdaptiveCards::BaseElement %{
+  // check if the C++ code finds an object and just return ourselves if it doesn't
+  public BaseElement findImplObj() {
+     Object o = swigOriginalObject();
+     return o != null ? ($javaclassname)o : this;
+  }
+%}
+
+%feature("director") AdaptiveCards::BaseElement;
+
+%typemap(in,numinputs=0) JNIEnv *jenv "$1 = jenv;"
 %extend AdaptiveCards::BaseCardElement {
     // return the underlying Java object if this is a Director, or null otherwise
     jobject swigOriginalObject(JNIEnv *jenv) {
@@ -223,6 +247,22 @@ namespace Json {
 
 %typemap(javadirectorout) std::shared_ptr<AdaptiveCards::ActionParserRegistration> "$typemap(jstype, AdaptiveCards::ActionParserRegistration).getCPtr($javacall)";
 %typemap(directorout) std::shared_ptr<AdaptiveCards::ActionParserRegistration> %{
+  $&1_type tmp = NULL;
+  *($&1_type*)&tmp = *($&1_type*)&$input;
+  if (!tmp) {
+    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "Attempt to dereference null $1_type");
+    return NULL;
+  }
+  $result = *tmp;
+%}
+
+%typemap(javadirectorin) std::shared_ptr<AdaptiveCards::BaseElement> "new $typemap(jstype, AdaptiveCards::BaseElement)($1,true)";
+%typemap(directorin,descriptor="Lio/adaptivecards/objectmodel/BaseElement;") std::shared_ptr<AdaptiveCards::BaseElement> %{
+  *($&1_type*)&j$1 = new $1_type($1);
+%}
+
+%typemap(javadirectorout) std::shared_ptr<AdaptiveCards::BaseElement> "$typemap(jstype, AdaptiveCards::BaseElement).getCPtr($javacall)";
+%typemap(directorout) std::shared_ptr<AdaptiveCards::BaseElement> %{
   $&1_type tmp = NULL;
   *($&1_type*)&tmp = *($&1_type*)&$input;
   if (!tmp) {
@@ -605,6 +645,7 @@ namespace Json {
 %include "../../../shared/cpp/ObjectModel/Enums.h"
 %include "../../../shared/cpp/ObjectModel/AdaptiveBase64Util.h"
 %include "../../../shared/cpp/ObjectModel/RemoteResourceInformation.h"
+%include "../../../shared/cpp/ObjectModel/BaseElement.h"
 %include "../../../shared/cpp/ObjectModel/BaseCardElement.h"
 %include "../../../shared/cpp/ObjectModel/BaseActionElement.h"
 %include "../../../shared/cpp/ObjectModel/BaseInputElement.h"

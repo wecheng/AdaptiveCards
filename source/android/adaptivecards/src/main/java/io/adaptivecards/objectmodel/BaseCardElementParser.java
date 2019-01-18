@@ -50,6 +50,16 @@ public class BaseCardElementParser {
     AdaptiveCardObjectModelJNI.BaseCardElementParser_change_ownership(this, swigCPtr, true);
   }
 
+  public BaseCardElementParser() {
+    this(AdaptiveCardObjectModelJNI.new_BaseCardElementParser__SWIG_0(), true);
+    AdaptiveCardObjectModelJNI.BaseCardElementParser_director_connect(this, swigCPtr, swigCMemOwn, true);
+  }
+
+  public BaseCardElementParser(BaseCardElementParser arg0) {
+    this(AdaptiveCardObjectModelJNI.new_BaseCardElementParser__SWIG_1(BaseCardElementParser.getCPtr(arg0), arg0), true);
+    AdaptiveCardObjectModelJNI.BaseCardElementParser_director_connect(this, swigCPtr, swigCMemOwn, true);
+  }
+
   public BaseCardElement Deserialize(ParseContext context, JsonValue value) {
     long cPtr = AdaptiveCardObjectModelJNI.BaseCardElementParser_Deserialize(swigCPtr, this, ParseContext.getCPtr(context), context, JsonValue.getCPtr(value), value);
     return (cPtr == 0) ? null : new BaseCardElement(cPtr, true);
@@ -58,11 +68,6 @@ public class BaseCardElementParser {
   public BaseCardElement DeserializeFromString(ParseContext context, String value) {
     long cPtr = AdaptiveCardObjectModelJNI.BaseCardElementParser_DeserializeFromString(swigCPtr, this, ParseContext.getCPtr(context), context, value);
     return (cPtr == 0) ? null : new BaseCardElement(cPtr, true);
-  }
-
-  public BaseCardElementParser() {
-    this(AdaptiveCardObjectModelJNI.new_BaseCardElementParser(), true);
-    AdaptiveCardObjectModelJNI.BaseCardElementParser_director_connect(this, swigCPtr, swigCMemOwn, true);
   }
 
 }

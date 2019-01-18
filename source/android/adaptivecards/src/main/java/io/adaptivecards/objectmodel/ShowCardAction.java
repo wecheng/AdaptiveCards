@@ -38,7 +38,11 @@ public class ShowCardAction extends BaseActionElement {
   }
 
   public ShowCardAction() {
-    this(AdaptiveCardObjectModelJNI.new_ShowCardAction(), true);
+    this(AdaptiveCardObjectModelJNI.new_ShowCardAction__SWIG_0(), true);
+  }
+
+  public ShowCardAction(ShowCardAction arg0) {
+    this(AdaptiveCardObjectModelJNI.new_ShowCardAction__SWIG_1(ShowCardAction.getCPtr(arg0), arg0), true);
   }
 
   public JsonValue SerializeToJsonValue() {

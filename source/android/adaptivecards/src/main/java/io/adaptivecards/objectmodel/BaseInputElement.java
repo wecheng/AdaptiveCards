@@ -45,14 +45,6 @@ public class BaseInputElement extends BaseCardElement {
     this(AdaptiveCardObjectModelJNI.new_BaseInputElement__SWIG_1(type.swigValue(), spacing.swigValue(), separator, height.swigValue()), true);
   }
 
-  public String GetId() {
-    return AdaptiveCardObjectModelJNI.BaseInputElement_GetId(swigCPtr, this);
-  }
-
-  public void SetId(String value) {
-    AdaptiveCardObjectModelJNI.BaseInputElement_SetId(swigCPtr, this, value);
-  }
-
   public boolean GetIsRequired() {
     return AdaptiveCardObjectModelJNI.BaseInputElement_GetIsRequired(swigCPtr, this);
   }

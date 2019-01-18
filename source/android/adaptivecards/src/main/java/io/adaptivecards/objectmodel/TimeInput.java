@@ -38,7 +38,11 @@ public class TimeInput extends BaseInputElement {
   }
 
   public TimeInput() {
-    this(AdaptiveCardObjectModelJNI.new_TimeInput(), true);
+    this(AdaptiveCardObjectModelJNI.new_TimeInput__SWIG_0(), true);
+  }
+
+  public TimeInput(TimeInput arg0) {
+    this(AdaptiveCardObjectModelJNI.new_TimeInput__SWIG_1(TimeInput.getCPtr(arg0), arg0), true);
   }
 
   public JsonValue SerializeToJsonValue() {

@@ -38,7 +38,11 @@ public class SubmitAction extends BaseActionElement {
   }
 
   public SubmitAction() {
-    this(AdaptiveCardObjectModelJNI.new_SubmitAction(), true);
+    this(AdaptiveCardObjectModelJNI.new_SubmitAction__SWIG_0(), true);
+  }
+
+  public SubmitAction(SubmitAction arg0) {
+    this(AdaptiveCardObjectModelJNI.new_SubmitAction__SWIG_1(SubmitAction.getCPtr(arg0), arg0), true);
   }
 
   public String GetDataJson() {

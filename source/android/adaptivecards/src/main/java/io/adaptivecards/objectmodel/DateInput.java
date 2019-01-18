@@ -38,7 +38,11 @@ public class DateInput extends BaseInputElement {
   }
 
   public DateInput() {
-    this(AdaptiveCardObjectModelJNI.new_DateInput(), true);
+    this(AdaptiveCardObjectModelJNI.new_DateInput__SWIG_0(), true);
+  }
+
+  public DateInput(DateInput arg0) {
+    this(AdaptiveCardObjectModelJNI.new_DateInput__SWIG_1(DateInput.getCPtr(arg0), arg0), true);
   }
 
   public JsonValue SerializeToJsonValue() {

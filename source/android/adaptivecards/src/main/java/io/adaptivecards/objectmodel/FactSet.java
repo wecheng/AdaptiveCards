@@ -38,7 +38,11 @@ public class FactSet extends BaseCardElement {
   }
 
   public FactSet() {
-    this(AdaptiveCardObjectModelJNI.new_FactSet(), true);
+    this(AdaptiveCardObjectModelJNI.new_FactSet__SWIG_0(), true);
+  }
+
+  public FactSet(FactSet arg0) {
+    this(AdaptiveCardObjectModelJNI.new_FactSet__SWIG_1(FactSet.getCPtr(arg0), arg0), true);
   }
 
   public JsonValue SerializeToJsonValue() {

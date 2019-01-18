@@ -38,7 +38,11 @@ public class ColumnSet extends BaseCardElement {
   }
 
   public ColumnSet() {
-    this(AdaptiveCardObjectModelJNI.new_ColumnSet(), true);
+    this(AdaptiveCardObjectModelJNI.new_ColumnSet__SWIG_0(), true);
+  }
+
+  public ColumnSet(ColumnSet arg0) {
+    this(AdaptiveCardObjectModelJNI.new_ColumnSet__SWIG_1(ColumnSet.getCPtr(arg0), arg0), true);
   }
 
   public JsonValue SerializeToJsonValue() {

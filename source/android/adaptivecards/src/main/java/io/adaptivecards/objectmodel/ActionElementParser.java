@@ -50,14 +50,19 @@ public class ActionElementParser {
     AdaptiveCardObjectModelJNI.ActionElementParser_change_ownership(this, swigCPtr, true);
   }
 
+  public ActionElementParser() {
+    this(AdaptiveCardObjectModelJNI.new_ActionElementParser__SWIG_0(), true);
+    AdaptiveCardObjectModelJNI.ActionElementParser_director_connect(this, swigCPtr, swigCMemOwn, true);
+  }
+
+  public ActionElementParser(ActionElementParser arg0) {
+    this(AdaptiveCardObjectModelJNI.new_ActionElementParser__SWIG_1(ActionElementParser.getCPtr(arg0), arg0), true);
+    AdaptiveCardObjectModelJNI.ActionElementParser_director_connect(this, swigCPtr, swigCMemOwn, true);
+  }
+
   public BaseActionElement Deserialize(ParseContext context, JsonValue value) {
     long cPtr = AdaptiveCardObjectModelJNI.ActionElementParser_Deserialize(swigCPtr, this, ParseContext.getCPtr(context), context, JsonValue.getCPtr(value), value);
     return (cPtr == 0) ? null : new BaseActionElement(cPtr, true);
-  }
-
-  public ActionElementParser() {
-    this(AdaptiveCardObjectModelJNI.new_ActionElementParser(), true);
-    AdaptiveCardObjectModelJNI.ActionElementParser_director_connect(this, swigCPtr, swigCMemOwn, true);
   }
 
 }

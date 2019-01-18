@@ -38,7 +38,11 @@ public class ToggleInput extends BaseInputElement {
   }
 
   public ToggleInput() {
-    this(AdaptiveCardObjectModelJNI.new_ToggleInput(), true);
+    this(AdaptiveCardObjectModelJNI.new_ToggleInput__SWIG_0(), true);
+  }
+
+  public ToggleInput(ToggleInput arg0) {
+    this(AdaptiveCardObjectModelJNI.new_ToggleInput__SWIG_1(ToggleInput.getCPtr(arg0), arg0), true);
   }
 
   public JsonValue SerializeToJsonValue() {
@@ -75,6 +79,14 @@ public class ToggleInput extends BaseInputElement {
 
   public void SetValueOn(String value) {
     AdaptiveCardObjectModelJNI.ToggleInput_SetValueOn(swigCPtr, this, value);
+  }
+
+  public boolean GetWrap() {
+    return AdaptiveCardObjectModelJNI.ToggleInput_GetWrap(swigCPtr, this);
+  }
+
+  public void SetWrap(boolean value) {
+    AdaptiveCardObjectModelJNI.ToggleInput_SetWrap(swigCPtr, this, value);
   }
 
   public static ToggleInput dynamic_cast(BaseCardElement baseCardElement) {
