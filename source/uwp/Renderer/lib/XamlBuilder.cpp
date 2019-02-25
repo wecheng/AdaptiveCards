@@ -1321,8 +1321,17 @@ namespace AdaptiveNamespace
         XamlHelpers::IterateOverVector<IAdaptiveActionElement>(children, [&](IAdaptiveActionElement* child) {
             if (currentAction < maxActions)
             {
+                ComPtr<IAdaptiveActionRendererRegistration> actionRegistration;
+                THROW_IF_FAILED(renderContext->get_ActionRenderers(&actionRegistration));
+
+                HString actionType;
+                THROW_IF_FAILED(child->get_ActionTypeString(actionType.GetAddressOf()));
+
+                ComPtr<IAdaptiveActionRenderer> renderer;
+                actionRegistration->Get(actionType.Get(), &renderer);
+
                 ComPtr<IUIElement> actionControl;
-                BuildAction(child, renderContext, renderArgs, &actionControl); // BECKYTODO - use registration
+                renderer->Render(child, renderContext, renderArgs, &actionControl);
 
                 XamlHelpers::AppendXamlElementToPanel(actionControl.Get(), actionsPanel.Get());
 

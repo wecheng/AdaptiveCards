@@ -17,10 +17,14 @@
 #include "AdaptiveImageSetRenderer.h"
 #include "AdaptiveMediaRenderer.h"
 #include "AdaptiveNumberInputRenderer.h"
+#include "AdaptiveOpenUrlActionRenderer.h"
 #include "AdaptiveRenderContext.h"
+#include "AdaptiveShowCardActionRenderer.h"
+#include "AdaptiveSubmitActionRenderer.h"
 #include "AdaptiveTextBlockRenderer.h"
 #include "AdaptiveTextInputRenderer.h"
 #include "AdaptiveTimeInputRenderer.h"
+#include "AdaptiveToggleVisibilityActionRenderer.h"
 #include "AdaptiveToggleInputRenderer.h"
 #include "AsyncOperations.h"
 #include "DefaultResourceDictionary.h"
@@ -55,7 +59,7 @@ namespace AdaptiveNamespace
         RETURN_IF_FAILED(MakeAndInitialize<AdaptiveElementRendererRegistration>(&m_elementRendererRegistration));
         RETURN_IF_FAILED(RegisterDefaultElementRenderers(m_elementRendererRegistration, m_xamlBuilder));
         RETURN_IF_FAILED(MakeAndInitialize<AdaptiveActionRendererRegistration>(&m_actionRendererRegistration));
-        //RETURN_IF_FAILED(RegisterDefaultActionRenderers(m_actionRendererRegistration));
+        RETURN_IF_FAILED(RegisterDefaultActionRenderers(m_actionRendererRegistration));
         RETURN_IF_FAILED(MakeAndInitialize<AdaptiveHostConfig>(&m_hostConfig));
         InitializeDefaultResourceDictionary();
         UpdateActionSentimentResourceDictionary();
