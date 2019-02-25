@@ -19,6 +19,7 @@ namespace AdaptiveNamespace
 
     HRESULT AdaptiveRenderContext::RuntimeClassInitialize(_In_ IAdaptiveHostConfig* hostConfig,
                                                           _In_ IAdaptiveElementRendererRegistration* elementRendererRegistration,
+                                                          _In_ IAdaptiveActionRendererRegistration* actionRendererRegistration,
                                                           _In_ IAdaptiveCardResourceResolvers* resourceResolvers,
                                                           _In_ IResourceDictionary* overrideDictionary,
                                                           _In_ IResourceDictionary* defaultActionSentimentStyles,
@@ -26,6 +27,7 @@ namespace AdaptiveNamespace
     {
         m_hostConfig = hostConfig;
         m_elementRendererRegistration = elementRendererRegistration;
+        m_actionRendererRegistration = actionRendererRegistration;
         m_resourceResolvers = resourceResolvers;
         m_overrideDictionary = overrideDictionary;
         m_actionSentimentDefaultDictionary = defaultActionSentimentStyles;
@@ -48,6 +50,11 @@ namespace AdaptiveNamespace
     HRESULT AdaptiveRenderContext::get_ElementRenderers(_COM_Outptr_ IAdaptiveElementRendererRegistration** value)
     {
         return m_elementRendererRegistration.CopyTo(value);
+    }
+
+    HRESULT AdaptiveRenderContext::get_ActionRenderers(_COM_Outptr_ IAdaptiveActionRendererRegistration** value)
+    {
+        return m_actionRendererRegistration.CopyTo(value);
     }
 
     HRESULT AdaptiveRenderContext::get_ActionInvoker(_COM_Outptr_ IAdaptiveActionInvoker** value)

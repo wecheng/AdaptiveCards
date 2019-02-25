@@ -87,13 +87,14 @@ AdaptiveNamespaceStart
 
     runtimeclass AdaptiveElementParserRegistration;
     runtimeclass AdaptiveActionParserRegistration;
+    runtimeclass AdaptiveElementRendererRegistration;
+    runtimeclass AdaptiveActionRendererRegistration;
     runtimeclass AdaptiveCardRenderer;
     runtimeclass AdaptiveChoiceSetInputRenderer;
     runtimeclass AdaptiveColumnRenderer;
     runtimeclass AdaptiveColumnSetRenderer;
     runtimeclass AdaptiveContainerRenderer;
     runtimeclass AdaptiveDateInputRenderer;
-    runtimeclass AdaptiveElementRendererRegistration;
     runtimeclass AdaptiveFactSetRenderer;
     runtimeclass AdaptiveImageRenderer;
     runtimeclass AdaptiveImageSetRenderer;
@@ -167,8 +168,10 @@ AdaptiveNamespaceStart
     interface IAdaptiveElementParser;
     interface IAdaptiveActionParser;
 
+    interface IAdaptiveActionRenderer;
     interface IAdaptiveElementRenderer;
     interface IAdaptiveElementRendererRegistration;
+    interface IAdaptiveActionRendererRegistration;
     interface IAdaptiveRenderContext;
     interface IAdaptiveRenderArgs;
     interface IAdaptiveActionInvoker;
@@ -1574,6 +1577,7 @@ AdaptiveNamespaceStart
         HRESULT RenderAdaptiveCardFromJson([in] Windows.Data.Json.JsonObject* adaptiveJson, [out, retval] RenderedAdaptiveCard** result);
 
         [propget] HRESULT ElementRenderers([out, retval] AdaptiveElementRendererRegistration** result);
+        [propget] HRESULT ActionRenderers([out, retval] AdaptiveActionRendererRegistration** result);
     };
 
     [
@@ -3012,6 +3016,39 @@ AdaptiveNamespaceStart
 
     [
         version(NTDDI_WIN10_RS1),
+        exclusiveto(AdaptiveActionRendererRegistration),
+#ifdef ADAPTIVE_CARDS_WINDOWS
+        uuid(41EF351F-45AF-428A-A3AC-88455EB03698),
+        contract(InternalContract, 1),
+        internal
+#else
+        uuid(C638667B-984C-4C33-9AD0-DDCD456C45F2)
+#endif        
+    ]
+    interface IAdaptiveActionRendererRegistration : IInspectable
+    {
+        HRESULT Set([in] HSTRING type, [in] IAdaptiveActionRenderer* renderer);
+        HRESULT Get([in] HSTRING type, [out, retval] IAdaptiveActionRenderer** result);
+        HRESULT Remove([in] HSTRING type);
+    };
+
+    [
+        version(NTDDI_WIN10_RS1),
+        activatable(NTDDI_WIN10_RS1),
+#ifdef ADAPTIVE_CARDS_WINDOWS
+        contract(InternalContract, 1),
+        internal,
+        activatable(InternalContract, 1)
+#endif        
+    ]
+    runtimeclass AdaptiveActionRendererRegistration
+    {
+        [default] interface IAdaptiveActionRendererRegistration;
+    };
+
+
+    [
+        version(NTDDI_WIN10_RS1),
         exclusiveto(AdaptiveActionInvoker),
 #ifdef ADAPTIVE_CARDS_WINDOWS
         uuid(81d601c7-ebad-4445-a84d-2517d610c993),
@@ -3104,6 +3141,8 @@ AdaptiveNamespaceStart
 
         [propget] HRESULT ElementRenderers([out, retval] AdaptiveElementRendererRegistration** value);
 
+        [propget] HRESULT ActionRenderers([out, retval] AdaptiveActionRendererRegistration** value);
+
         [propget] HRESULT ResourceResolvers([out, retval] AdaptiveCardResourceResolvers** value);
 
         [propget] HRESULT ActionInvoker([out, retval] AdaptiveActionInvoker** value);
@@ -3146,6 +3185,21 @@ AdaptiveNamespaceStart
     interface IAdaptiveElementRenderer : IInspectable
     {
         HRESULT Render([in] IAdaptiveCardElement* element, [in] AdaptiveRenderContext* context, [in] AdaptiveRenderArgs* renderArgs, [out, retval] Windows.UI.Xaml.UIElement** result);
+    };
+
+    [
+        version(NTDDI_WIN10_RS1),
+#ifdef ADAPTIVE_CARDS_WINDOWS
+        uuid(0AFBC719-6F2A-4CC7-AAC8-C84E98F78A68),
+        contract(InternalContract, 1),
+        internal
+#else
+        uuid(B028B6B4-3773-4414-B5E3-58397F8CA37C)
+#endif        
+    ]
+    interface IAdaptiveActionRenderer : IInspectable
+    {
+        HRESULT Render([in] IAdaptiveActionElement* action, [in] AdaptiveRenderContext* context, [in] AdaptiveRenderArgs* renderArgs, [out, retval] Windows.UI.Xaml.UIElement** result);
     };
 
     [

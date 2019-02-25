@@ -123,6 +123,7 @@
     <ClInclude Include="lib\AdaptiveActionElement.h" />
     <ClInclude Include="lib\AdaptiveActionInvoker.h" />
     <ClInclude Include="lib\AdaptiveActionParserRegistration.h" />
+    <ClInclude Include="lib\AdaptiveActionRendererRegistration.h" />
     <ClInclude Include="lib\AdaptiveActionsConfig.h" />
     <ClInclude Include="lib\AdaptiveActionSet.h" />
     <ClInclude Include="lib\AdaptiveActionSetRenderer.h" />
@@ -224,6 +225,7 @@
     <ClInclude Include="lib\Vector.h" />
     <ClInclude Include="lib\WholeItemsPanel.h" />
     <ClInclude Include="lib\XamlBuilder.h" />
+    <ClCompile Include="lib\AdaptiveActionRendererRegistration.cpp" />
     <ClCompile Include="lib\AdaptiveFontStyleDefinition.cpp" />
     <ClCompile Include="lib\AdaptiveFontStylesDefinition.cpp" />
     <ClCompile Include="lib\AdaptiveMedia.cpp" />

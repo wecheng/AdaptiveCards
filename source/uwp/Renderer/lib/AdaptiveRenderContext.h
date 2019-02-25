@@ -20,6 +20,7 @@ namespace AdaptiveNamespace
 
         HRESULT RuntimeClassInitialize(_In_ ABI::AdaptiveNamespace::IAdaptiveHostConfig* hostConfig,
                                        _In_ ABI::AdaptiveNamespace::IAdaptiveElementRendererRegistration* elementRendererRegistration,
+                                       _In_ ABI::AdaptiveNamespace::IAdaptiveActionRendererRegistration* actionRendererRegistration,
                                        _In_ ABI::AdaptiveNamespace::IAdaptiveCardResourceResolvers* resourceResolvers,
                                        _In_ ABI::Windows::UI::Xaml::IResourceDictionary* overrideStyles,
                                        _In_ ABI::Windows::UI::Xaml::IResourceDictionary* defaultActionSentimentStyles,
@@ -27,6 +28,7 @@ namespace AdaptiveNamespace
 
         IFACEMETHODIMP get_HostConfig(_COM_Outptr_ ABI::AdaptiveNamespace::IAdaptiveHostConfig** value);
         IFACEMETHODIMP get_ElementRenderers(_COM_Outptr_ ABI::AdaptiveNamespace::IAdaptiveElementRendererRegistration** value);
+        IFACEMETHODIMP get_ActionRenderers(_COM_Outptr_ ABI::AdaptiveNamespace::IAdaptiveActionRendererRegistration** value);
         IFACEMETHODIMP get_ActionInvoker(_COM_Outptr_ ABI::AdaptiveNamespace::IAdaptiveActionInvoker** value);
         IFACEMETHODIMP get_MediaEventInvoker(_COM_Outptr_ ABI::AdaptiveNamespace::IAdaptiveMediaEventInvoker** value);
         IFACEMETHODIMP AddInputValue(_In_ ABI::AdaptiveNamespace::IAdaptiveInputValue* inputValue);
@@ -47,6 +49,7 @@ namespace AdaptiveNamespace
     private:
         Microsoft::WRL::ComPtr<ABI::AdaptiveNamespace::IAdaptiveHostConfig> m_hostConfig;
         Microsoft::WRL::ComPtr<ABI::AdaptiveNamespace::IAdaptiveElementRendererRegistration> m_elementRendererRegistration;
+        Microsoft::WRL::ComPtr<ABI::AdaptiveNamespace::IAdaptiveActionRendererRegistration> m_actionRendererRegistration;
         Microsoft::WRL::WeakRef m_weakRenderResult;
         Microsoft::WRL::ComPtr<AdaptiveNamespace::AdaptiveActionInvoker> m_actionInvoker;
         Microsoft::WRL::ComPtr<AdaptiveNamespace::AdaptiveMediaEventInvoker> m_mediaEventInvoker;

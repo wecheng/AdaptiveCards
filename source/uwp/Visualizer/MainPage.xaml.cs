@@ -31,6 +31,21 @@ namespace AdaptiveCardVisualizer
 
         public MainPage()
         {
+
+            string inputNumberString =
+            "{" +
+                "\"type\": \"AdaptiveCard\"," +
+                "\"version\": \"1.0\"," +
+                "\"body\": [" +
+                "{" +
+                    "\"type\": \"Input.Number\"," +
+                    "\"id\": \"date\"" +
+                "}" +
+            "]" +
+            "}";
+
+            var parseResult = AdaptiveCard.FromJsonString(inputNumberString);
+
             this.InitializeComponent();
 
             Load();
