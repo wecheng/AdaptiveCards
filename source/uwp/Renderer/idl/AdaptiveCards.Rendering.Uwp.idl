@@ -3451,9 +3451,10 @@ AdaptiveNamespaceStart
         activatable(InternalContract, 1)
 #endif
     ] 
-    runtimeclass AdaptiveOpenUrlActionParser 
+    runtimeclass AdaptiveOpenUrlActionRenderer 
     { 
-        [default] interface IAdaptiveActionParser; 
+        [default] interface IAdaptiveActionRenderer;
+        interface IAdaptiveActionParser; 
     };
 
     [
@@ -3465,9 +3466,10 @@ AdaptiveNamespaceStart
         activatable(InternalContract, 1)
 #endif
     ] 
-    runtimeclass AdaptiveShowCardActionParser 
+    runtimeclass AdaptiveShowCardActionRenderer 
     { 
-        [default] interface IAdaptiveActionParser; 
+        [default] interface IAdaptiveActionRenderer;
+        interface IAdaptiveActionParser; 
     };
 
     [
@@ -3479,9 +3481,10 @@ AdaptiveNamespaceStart
         activatable(InternalContract, 1)
 #endif
     ] 
-    runtimeclass AdaptiveSubmitActionParser 
+    runtimeclass AdaptiveSubmitActionRenderer 
     {
-        [default] interface IAdaptiveActionParser;
+        [default] interface IAdaptiveActionRenderer;
+        interface IAdaptiveActionParser; 
     };
 
     [version(NTDDI_WIN10_RS1),
@@ -3491,7 +3494,11 @@ AdaptiveNamespaceStart
      internal,
      activatable(InternalContract, 1)
 #endif
-    ] runtimeclass AdaptiveToggleVisibilityActionParser { [default] interface IAdaptiveActionParser; };
+    ] runtimeclass AdaptiveToggleVisibilityActionRenderer 
+    {
+        [default] interface IAdaptiveActionRenderer;
+        interface IAdaptiveActionParser;
+    };
 
     [
         version(NTDDI_WIN10_RS1),

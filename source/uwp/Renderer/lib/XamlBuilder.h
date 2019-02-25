@@ -100,6 +100,10 @@ namespace AdaptiveNamespace
                                    _In_ ABI::AdaptiveNamespace::IAdaptiveRenderContext* renderContext,
                                    _In_ ABI::AdaptiveNamespace::IAdaptiveRenderArgs* renderArgs,
                                    _Outptr_ ABI::Windows::UI::Xaml::IUIElement** containerControl);
+        static void BuildAction(_In_ ABI::AdaptiveNamespace::IAdaptiveActionElement* adaptiveActionElement,
+                                _In_ ABI::AdaptiveNamespace::IAdaptiveRenderContext* renderContext,
+                                _In_ ABI::AdaptiveNamespace::IAdaptiveRenderArgs* renderArgs,
+                                _Outptr_ ABI::Windows::UI::Xaml::IUIElement** actionControl);
 
         template<typename T>
         static HRESULT TryGetResourceFromResourceDictionaries(_In_ ABI::Windows::UI::Xaml::IResourceDictionary* resourceDictionary,
@@ -184,13 +188,13 @@ namespace AdaptiveNamespace
                                  _In_ ABI::Windows::UI::Xaml::Controls::IPanel* bodyPanel,
                                  bool insertSeparator,
                                  _In_ ABI::AdaptiveNamespace::IAdaptiveRenderContext* renderContext,
-                                 ABI::AdaptiveNamespace::ContainerStyle containerStyle);
+                                 _In_ ABI::AdaptiveNamespace::IAdaptiveRenderArgs* renderArgs);
 
         static void BuildActionSetHelper(ABI::Windows::Foundation::Collections::IVector<ABI::AdaptiveNamespace::IAdaptiveActionElement*>* children,
-                                         ABI::AdaptiveNamespace::IAdaptiveRenderContext* renderContext,
+                                         _In_ ABI::AdaptiveNamespace::IAdaptiveRenderContext* renderContext,
+                                         _In_ ABI::AdaptiveNamespace::IAdaptiveRenderArgs* renderArgs,
                                          bool isBottomActionBar,
-                                         ABI::Windows::UI::Xaml::IUIElement** actionSetControl,
-                                         ABI::AdaptiveNamespace::ContainerStyle containerStyle);
+                                         _Outptr_ ABI::Windows::UI::Xaml::IUIElement** actionSetControl);
 
         static void XamlBuilder::HandleInlineAcion(_In_ ABI::AdaptiveNamespace::IAdaptiveRenderContext* renderContext,
                                                    _In_ ABI::AdaptiveNamespace::IAdaptiveRenderArgs* renderArgs,
@@ -275,5 +279,11 @@ namespace AdaptiveNamespace
 
         static HRESULT HandleToggleVisibilityClick(_In_ ABI::AdaptiveNamespace::IAdaptiveRenderContext* renderContext,
                                                    _In_ ABI::AdaptiveNamespace::IAdaptiveActionElement* action);
+
+        static ABI::Windows::UI::Xaml::Thickness GetButtonMargin(_In_ ABI::AdaptiveNamespace::IAdaptiveActionsConfig* actionsConfig);
+
+        static void HandleActionStyling(_In_ ABI::AdaptiveNamespace::IAdaptiveActionElement* adaptiveActionElement,
+                                        _In_ ABI::Windows::UI::Xaml::IFrameworkElement* buttonFrameworkElement,
+                                        _In_ ABI::AdaptiveNamespace::IAdaptiveRenderContext* renderContext);
     };
 }
